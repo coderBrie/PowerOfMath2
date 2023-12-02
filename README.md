@@ -47,5 +47,23 @@ Give the app a name, i'm going to call mine "power of math", the environment nam
 
 ![Screenshot](/images/img_4.png)
 
+Save and deploy, after the deployement is successfully completed, you can access the link under Domain, open it on a new tab, we now have a live web page that users can navigate to:
+
+![Screenshot](/images/img_5.png)
+
+## Step 3: Creating a Python Lambda function to implement our math functionality
+we're going to use a lambda function as you might know a lambdafunction is just a bit of code that runs in response to some trigger for example when you upload a picture to an s3 bucket that could trigger a lambda function to go process the picture into a thumbnail or something like that it's just code or functions really sitting out there that get run when you need them and these are serverless meaning that you don't have to set up and manage servers to run the code it just happens automatically behind the scenes for you
+so we'll write some python code and use the python math library to do the calculations that we need.
+
+Back here on the console go ahead and open up new tab this time we're going to navigate to lambda, create a funtion:
+
+![Screenshot](/images/img_6.png)
+
+Then for function name i'm going to do "power of math function"
+
+
+
+
+
 ## Cost
 All services used are eligible for the [AWS Free Tier](https://aws.amazon.com/free/).  However, charges will incur at some point so it's recommended that you shut down resources after completing this tutorial.
