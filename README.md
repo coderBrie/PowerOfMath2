@@ -36,12 +36,15 @@ Open your text editor, create an index.html file and paste the code below:
 what we need to do is zip just the index.html file, now we're going to use amplify to deploy it.
 
 In the aws console navigate to  amplify, click Get Started on Amplify Hosting:
+
 ![Screenshot](/images/img_2.png)
 
 Select Deploy without Git Provider:
+
 ![Screenshot](/images/img_3.png)
 
 Give the app a name, i'm going to call mine "power of math", the environment name i'm going to use "dev" and we want to drag and drop that zip file that we created:
+
 ![Screenshot](/images/img_4.png)
 
 ## Cost
