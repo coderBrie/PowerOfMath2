@@ -69,6 +69,65 @@ Then for function name i'm going to do "power of math function", in my case for 
 ![Screenshot](/images/img_7.png)
 
 
+Fom the Code Source section, copy and replace the lambda function code provided below: 
+
+ ```bash
+      # import the JSON utility package
+        import json
+        # import the Python math library
+        import math
+
+        # define the handler function that the Lambda service will use an entry point
+        def lambda_handler(event, context):
+
+        # extract the two numbers from the Lambda service's event object
+        mathResult = math.pow(int(event['base']), int(event['exponent']))
+
+        # return a properly formatted JSON object
+        return {
+        'statusCode': 200,
+        'body': json.dumps('Your result is ' + str(mathResult))
+        }
+
+   ```
+
+
+   Replace and paste the lambda function code, save the changes and make sure to deploy by cliking the deploy button:
+
+   ![Screenshot](/images/img_8.png)
+
+
+## Step 4: Testing our Lambda function
+let's test to make sure this functions work as we expect, click the little drop down arrow to the
+right of test: 
+
+![Screenshot](/images/img_9.png)
+
+Set up a test event this basically lets us pass in some test data to make sure that the function's working, create a new event event name power of math test event, we only have two values to pass in one of them is going to be base and one is going to be exponent and you can choose whatever values you want here i'm going to do 2 to the power of 3, the clik the save button:
+
+![Screenshot](/images/img_10.png)
+
+Run the test by cliking the test button, the base value of 2 to the power of 3 should give us 8 as a result:
+
+![Screenshot](/images/img_11.png)
+
+## Step 5: How to invoke our Lambda function
+The way to invoke that math functionality or basically invoke that lambda function so our users obviously aren't going to go into the aws console like we just did and run it so we need a public endpoint or url that can be called to trigger that function to run and for that we're going to use api gateway this is a core service in aws that you can use to build your own apis application programming interfaces whether those are http rest or websocket APIs and it's really the perfect way to
+invoke a lambda function.
+
+To Creating a REST API for our Lambda function using API Gateway, on console navigate the API Gateway, create a new one by clicking on the create api button, we're going to use REST API, so click build button:
+
+![Screenshot](/images/img_12.png)
+
+
+
+
+
+
+
+
+
+
 
 
 ## Cost
