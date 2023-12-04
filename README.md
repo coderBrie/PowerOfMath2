@@ -1,6 +1,11 @@
 ## AWS Project - Architect and Build an End-to-End AWS Web Application
 In this hands-on project, I’ll walk you through how to design and build a simple web application from scratch.  We’ll pick five different services—Amplify, Lambda, IAM, API Gateway and DynamoDB—and talk about why/where to use them, and how to get them to work with each other.  As we go, we’ll build out each of the services, resulting in a fully-functional math web application.
 
+## The Application Architecture
+
+![Screenshot](/images/app_archi.png)
+
+
 ![Screenshot](/images/img_1.png)
 
 ### [🌐 LIVE SITE](https://dev.dov7jejtaezo6.amplifyapp.com/)
@@ -59,8 +64,9 @@ Back here on the console go ahead and open up new tab this time we're going to n
 
 ![Screenshot](/images/img_6.png)
 
-Then for function name i'm going to do "power of math function"
+Then for function name i'm going to do "power of math function", in my case for runtime let's go with the latest version of python 3.11 , you can leave everything else the same and create function down here on the lower right:
 
+![Screenshot](/images/img_7.png)
 
 
 
