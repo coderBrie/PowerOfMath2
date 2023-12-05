@@ -160,10 +160,36 @@ We'll need to set up a new stage you might have different stages for dev test pr
 ![Screenshot](/images/img_19.png)
 
 
-You'll need to copy the invoke url and we'll need that later:
+You'll need to copy the invoke url on a notepad and we'll need that for later:
 
 
 ![Screenshot](/images/img_20.png)
+
+## Step 5: Creating a new DynamoDB table to store our math result
+
+we're going to be using DynamoDB this is a key value or NOSQL database it's generally going to be
+lighter weight than something like a relational database where you have to go set up your schema your relationships and we have to deal with permissions as well specifically we're going to need to give our lambda function permission to write to the database so let's go work on this next.
+
+On the console navigate to DynamoDB, create table: 
+
+
+![Screenshot](/images/img_21.png)
+
+
+We want to create table for table name i'll do power of math database, for partition key we'll say id
+you can leave everything else the same and create table: 
+
+
+![Screenshot](/images/img_22.png)
+
+
+
+
+
+
+
+
+
 
 
 
