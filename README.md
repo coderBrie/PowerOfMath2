@@ -157,6 +157,16 @@ Let's deploy the api so we can test it out:
 We'll need to set up a new stage you might have different stages for dev test production and so on this one we'll call dev and deploy:
 
 
+![Screenshot](/images/img_19.png)
+
+
+You'll need to copy the invoke url and we'll need that later:
+
+
+![Screenshot](/images/img_20.png)
+
+
+
 
 
 
