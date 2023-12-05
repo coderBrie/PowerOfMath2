@@ -120,6 +120,47 @@ To Creating a REST API for our Lambda function using API Gateway, on console nav
 ![Screenshot](/images/img_12.png)
 
 
+Leave these first two options as they are so this will be rest and a new api and then we need to give it a name
+so mine will be "power of math api". you can leave everything else the same and then create api :
+
+![Screenshot](/images/img_13.png)
+
+For the API method to be called, on the left make sure you have resources selected and then make sure you've got the backslash selected and then create method:
+
+
+![Screenshot](/images/img_14.png)
+
+
+The type of method will be a post and for integration type we're going to use a lambda function and then the lambda function name itself you'll need to start typing it should be power of math function, click on create method:
+
+![Screenshot](/images/img_15.png)
+
+
+One other thing we need to do is enable CORS or Cross Origin Resource sharing:
+
+
+![Screenshot](/images/img_16.png)
+
+
+Basically what this does is allows a web application running in one origin or domain to be able to access resources on a different origin or domain, because our web application is running on one domain and amplify our lambda function is going to be running in another we need to be able to work across those domains or origins, clik save:
+
+
+![Screenshot](/images/img_17.png)
+
+
+Let's deploy the api so we can test it out, we'll need to set up a new stage you might have different stages for dev test production and so on this one we'll call dev and deploy: 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
