@@ -148,10 +148,13 @@ Basically what this does is allows a web application running in one origin or do
 ![Screenshot](/images/img_17.png)
 
 
-Let's deploy the api so we can test it out, we'll need to set up a new stage you might have different stages for dev test production and so on this one we'll call dev and deploy: 
+Let's deploy the api so we can test it out:  
 
 
+![Screenshot](/images/img_18.png)
 
+
+We'll need to set up a new stage you might have different stages for dev test production and so on this one we'll call dev and deploy:
 
 
 
