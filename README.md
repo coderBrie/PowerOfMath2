@@ -176,11 +176,17 @@ On the console navigate to DynamoDB, create table:
 ![Screenshot](/images/img_21.png)
 
 
-We want to create table for table name i'll do power of math database, for partition key we'll say id
+We want to create table for table name i'll do "power of math database", for partition key we'll say ID
 you can leave everything else the same and create table: 
 
 
 ![Screenshot](/images/img_22.png)
+
+
+We do need to save the Amazon Resource Name or the ARN for this so if you click into that table and under general information and additional info grab the ARN right here and then just paste that into the same notepad or whatever you're using to store your links so this is my arn for the database and we'll come back and get that later: 
+
+
+![Screenshot](/images/img_23.png)
 
 
 
