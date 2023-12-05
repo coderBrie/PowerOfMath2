@@ -386,7 +386,7 @@ For this part we're going to need to update the index.html page so go ahead and 
 
 ## Step 9: Re-deploying our index.html page using Amplify
 
-Make a zip file out of this again so i'm going to delete our original zip file and then update index.html, compressed the file to a new zip and then we're going to need to go redeploy it using amplify, drag and drop the zip file to amplify, this will automatically redeploy.
+Make a zip file out of this again so i'm going to delete our original zip file and then update index.html,compressed the file to a new zip and then we're going to need to go redeploy it using amplify, drag and drop the zip file to amplify, this will automatically redeploy.
 
 
 
