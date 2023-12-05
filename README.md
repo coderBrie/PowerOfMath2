@@ -183,10 +183,122 @@ you can leave everything else the same and create table:
 ![Screenshot](/images/img_22.png)
 
 
-We do need to save the Amazon Resource Name or the ARN for this so if you click into that table and under general information and additional info grab the ARN right here and then just paste that into the same notepad or whatever you're using to store your links so this is my arn for the database and we'll come back and get that later: 
+We do need to save the Amazon Resource Name or the ARN for this so if you click into that table and under general information and additional info grab the ARN, and then just paste that into the same notepad or whatever you're using to store your links, and we'll come back and get that later: 
 
 
 ![Screenshot](/images/img_23.png)
+
+
+## Step 6: Giving Lambda permission to write to the DynamoDB table
+
+Navigate back to lambda and find the function and you want to go to the configuration tab (IAM)
+and then if it's not already selected go to permissions and then you want to click on role
+name, the execution role this should open up in a new tab and we basically need to add some
+additional permissions to what this role has already permissions related to dynamodb:
+
+
+![Screenshot](/images/img_24.png)
+
+
+Add permissions and create inline policy, i personally find it easier just to work with the json code so click on the json tab and grab this code:
+
+
+ ```bash
+        {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "VisualEditor0",
+                "Effect": "Allow",
+                "Action": [
+                    "dynamodb:PutItem",
+                    "dynamodb:DeleteItem",
+                    "dynamodb:GetItem",
+                    "dynamodb:Scan",
+                    "dynamodb:Query",
+                    "dynamodb:UpdateItem"
+                ],
+                "Resource": "YOUR-TABLE-ARN"
+            }
+            ]
+        }
+
+```
+
+
+Copy all of this and replace what i have here and this is just basically saying allow
+all these different actions in dynamodb so the lambda function is going to have
+permissions to do all of these things on our dynamodb table.
+
+
+You need to update this right here to that table arn that you copied just a minute, starting with ARN  ```bash YOUR-TABLE-ARN``` so copy that paste it: 
+
+
+![Screenshot](/images/img_25.png)
+
+
+Then we'll review policy, we'll give it a name "power of math dynamo policy" and finally create policy on the lower right:
+
+
+![Screenshot](/images/img_26.png)
+
+
+
+## Step 7: Updating the Lambda function code to write to the DynamoDB table
+
+Update the lambda function to actually go right to the database it wasn't doing
+that before so let's come back to the lambda function, copy and replace the code:
+
+
+ ```bash
+    # import the JSON utility package
+        import json
+        # import the Python math library
+        import math
+
+        # import the AWS SDK (for Python the package name is boto3)
+        import boto3
+        # import two packages to help us with dates and date formatting
+        from time import gmtime, strftime
+
+        # create a DynamoDB object using the AWS SDK
+        dynamodb = boto3.resource('dynamodb')
+        # use the DynamoDB object to select our table
+        table = dynamodb.Table('PowerOfMathDatabase')
+        # store the current time in a human readable format in a variable
+        now = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+
+        # define the handler function that the Lambda service will use an entry point
+        def lambda_handler(event, context):
+
+        # extract the two numbers from the Lambda service's event object
+            mathResult = math.pow(int(event['base']), int(event['exponent']))
+
+        # write result and time to the DynamoDB table using the object we instantiated and save response in a variable
+            response = table.put_item(
+                Item={
+                    'ID': str(mathResult),
+                    'LatestGreetingTime':now
+                    })
+
+        # return a properly formatted JSON object
+            return {
+            'statusCode': 200,
+            'body': json.dumps('Your result is ' + str(mathResult))
+         }
+
+```
+
+
+Updated code make sure you save with a control very importantly make sure you deploy this pushes out your changes
+
+
+![Screenshot](/images/img_27.png)
+
+
+
+
+
 
 
 
