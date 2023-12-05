@@ -296,6 +296,100 @@ Updated code make sure you save with a control very importantly make sure you de
 ![Screenshot](/images/img_27.png)
 
 
+## Step 8: Updating the index.html page to call API Gateway
+
+For this part we're going to need to update the index.html page so go ahead and copy the code, you need to update your api gateway endpoint "YOUR API GATEWAY ENDPOINT" with your url you saved on your notepad, it should end in dev if you created a dev stage like i did: 
+
+
+```bash
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>To the Power of Math!</title>
+            <!-- Styling for the client UI -->
+            <style>
+            h1 {
+                color: #FFFFFF;
+                font-family: system-ui;
+                margin-left: 20px;
+                }
+            body {
+                background-color: #222629;
+                }
+            label {
+                color: #86C232;
+                font-family: system-ui;
+                font-size: 20px;
+                margin-left: 20px;
+                margin-top: 20px;
+                }
+            button {
+                background-color: #86C232;
+                border-color: #86C232;
+                color: #FFFFFF;
+                font-family: system-ui;
+                font-size: 20px;
+                font-weight: bold;
+                margin-left: 30px;
+                margin-top: 20px;
+                width: 140px;
+                }
+            input {
+                color: #222629;
+                font-family: system-ui;
+                font-size: 20px;
+                margin-left: 10px;
+                margin-top: 20px;
+                width: 100px;
+                }
+            </style>
+            <script>
+                // callAPI function that takes the base and exponent numbers as parameters
+                var callAPI = (base,exponent)=>{
+                    // instantiate a headers object
+                    var myHeaders = new Headers();
+                    // add content type header to object
+                    myHeaders.append("Content-Type", "application/json");
+                    // using built in JSON utility package turn object to string and store in a variable
+                    var raw = JSON.stringify({"base":base,"exponent":exponent});
+                    // create a JSON object with parameters for API call and store in a variable
+                    var requestOptions = {
+                        method: 'POST',
+                        headers: myHeaders,
+                        body: raw,
+                        redirect: 'follow'
+                    };
+                    // make API call with parameters and use promises to get response
+                    fetch("YOUR API GATEWAY ENDPOINT", requestOptions)
+                    .then(response => response.text())
+                    .then(result => alert(JSON.parse(result).body))
+                    .catch(error => console.log('error', error));
+                }
+            </script>
+        </head>
+        <body>
+            <h1>TO THE POWER OF MATH!</h1>
+            <form>
+                <label>Base number:</label>
+                <input type="text" id="base">
+                <label>...to the power of:</label>
+                <input type="text" id="exponent">
+                <!-- set button onClick method to call function we defined passing input values as parameters -->
+                <button type="button" onclick="callAPI(document.getElementById('base').value,document.getElementById('exponent').value)">CALCULATE</button>
+            </form>
+        </body>
+    </html>
+
+```
+
+
+## Step 9: Re-deploying our index.html page using Amplify
+
+Make a zip file out of this again so i'm going to delete our original zip file and then update index.html, compressed the file to a new zip and then we're going to need to go redeploy it using amplify, drag and drop the zip file to amplify, this will automatically redeploy.
+
+
+
 
 
 
