@@ -8,7 +8,9 @@ In this hands-on project, I’ll walk you through how to design and build a simp
 
 ![Screenshot](/images/img_1.png)
 
-### [🌐 LIVE SITE](https://dev.dov7jejtaezo6.amplifyapp.com/)
+## Live Site
+I used this template to complete the live site below on my personal AWS account:
+
 
 
 What do we need?
